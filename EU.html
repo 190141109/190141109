@@ -13,6 +13,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-T7BNKKL');</script>
 <!-- End Google Tag Manager -->
+<script>
+/**
+* Analytics (分析) 用來追蹤出站連結所獲得點擊的函式。
+* 這個函式需要有效的網址字串做為引數，並使用該網址字串
+* 做為事件標籤。將傳輸方式設為「beacon」(信標)，即可
+* 在支援「navigator.sendBeacon」的瀏覽器中透過該功能傳送匹配。
+*/
+var trackOutboundLink = function(url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': url,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+</script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-190783756-1"></script>
 <script>
@@ -39,7 +55,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 	<div id="header">
-		<a href="https://www.paradoxplaza.com/europa-universalis-all/" class="logo" onClick=”ga(‘send’, ‘event’, ‘Link’, ‘Click’, ‘EUlogo’);”
+		<a href="https://www.paradoxplaza.com/europa-universalis-all/" class="logo" onclick="trackOutboundLink('https://www.paradoxplaza.com/europa-universalis-all/'); return false;");”
 
 >
 			<img src="images/EU4logo.png" alt="">
@@ -70,7 +86,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<p><em>The empire building game Europa Universalis IV gives you control of a nation to guide through the years in order to create a dominant global empire. Rule your nation through the centuries, with unparalleled freedom, depth and historical accuracy.</em></p>
 				<p>&nbsp;</p>
 			  <p>&nbsp;</p>
-				<h3><a href="https://www.paradoxplaza.com/europa-universalis-all/" onClick=”ga(‘send’, ‘event’, ‘Link’, ‘Click’, ‘LINKTEXT’);”>Official Website</a></h3>
+				<h3><a href="https://www.paradoxplaza.com/europa-universalis-all/" onclick="trackOutboundLink('https://www.paradoxplaza.com/europa-universalis-all/'); return false;">Official Website</a></h3>
 			  <p>&nbsp;</p>
 				<p>&nbsp;</p>
 				<h2><img src="images/EU402jpg.jpg" width="635" height="332" alt=""/></h2>
